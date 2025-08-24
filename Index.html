@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProCert - Certificación ISO para Empresas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-oscuro: #0A2463;
+            --verde: #4CAF50;
+            --gris-claro: #F5F5F5;
+            --gris-oscuro: #333333;
+            --blanco: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--blanco);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--azul-oscuro);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin: 0 15px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--gris-oscuro);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--verde);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--verde);
+            color: var(--blanco);
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #3d8b40;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: var(--azul-oscuro);
+            cursor: pointer;
+        }
+        
+        /* WhatsApp flotante */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 36, 99, 0.7), rgba(10, 36, 99, 0.7)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--blanco);
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: var(--azul-oscuro);
+        }
+        
+        .section-light {
+            background-color: var(--blanco);
+        }
+        
+        .section-gray {
+            background-color: var(--gris-claro);
+        }
+        
+        /* IAF/UAF Section */
+        .iaf-uaf {
+            text-align: center;
+        }
+        
+        .iaf-uaf p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 30px;
+        }
+        
+        .logo-placeholder {
+            width: 150px;
+            height: 150px;
+            background-color: var(--gris-claro);
+            border: 1px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+        
+        /* Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background: var(--blanco);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 40px;
+            color: var(--verde);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            color: var(--azul-oscuro);
+        }
+        
+        /* Normas ISO */
+        .normas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .norma-card {
+            background: var(--blanco);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .norma-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .norma-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--gris-claro);
+            font-weight: bold;
+            color: var(--azul-oscuro);
+            font-size: 12px;
+        }
+        
+        .norma-card h3 {
+            color: var(--azul-oscuro);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .norma-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .norma-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .norma-details.active {
+            max-height: 500px;
+        }
+        
+        .norma-details-content {
+            padding: 20px;
+            background-color: var(--gris-claro);
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        /* Clientes */
+        .clientes-container {
+            text-align: center;
+        }
+        
+        .clientes-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .cliente-logo {
+            width: 150px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            background-color: var(--blanco);
+            padding: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cliente-logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .testimonios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonio {
+            background: var(--blanco);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonio-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .testimonio-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            overflow: hidden;
+        }
+        
+        .testimonio-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Formulario */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* CTA Final */
+        .cta-final {
+            text-align: center;
+            background: linear-gradient(to right, var(--azul-oscuro), #1a3a8f);
+            color: var(--blanco);
+            padding: 80px 0;
+        }
+        
+        .cta-final h2 {
+            color: var(--blanco);
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--blanco);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--verde);
+        }
+        
+        .footer-links h4, .footer-social h4 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--blanco);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--verde);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--blanco);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--verde);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* WhatsApp CTA Sections */
+        .whatsapp-cta {
+            text-align: center;
+            padding: 40px 0;
+            background-color: var(--gris-claro);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--blanco);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .logos-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+            
+            .form-container {
+                padding: 25px;
+            }
+            
+            .clientes-logos {
+                gap: 15px;
+            }
+            
+            .cliente-logo {
+                width: 120px;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
+            
+            .norma-logo {
+                width: 70px;
+                height: 70px;
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+<a href="#" class="logo"></a><header> 
+<div class="container header-container"><a href="#" class="logo">
+  </a> <img src="logos/Logoprocert.png" width="174" height="131">
+<ul class="nav-menu">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#normas">Normas ISO</a></li>
+                <li><a href="#clientes">Clientes</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            
+            
+  <p>&nbsp;</p>
+  <p><a href="https://wa.me/595985899217?text=Hola,%20quiero%20certificar%20mi%20empresa" class="btn btn-whatsapp" target="_blank">Certifica 
+    tu empresa</a> </p>
+</div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            
+  <h1>&nbsp;</h1>
+  <h1>Certificamos empresas bajo normas ISO con reconocimiento internacional</h1>
+            <p>Aumenta la competitividad, accedes a nuevos mercados y cumple con los más altos estándares de calidad.</p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn">Solicita información</a>
+                <a href="https://wa.me/595985899217?text=Hola,%20quiero%20más%20información%20sobre%20certificación%20ISO" class="btn btn-whatsapp" target="_blank">Consulta por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- IAF/UAF Section -->
+    <section id="iaf-uaf" class="section-light">
+        <div class="container iaf-uaf">
+            <h2>Certificación con validez internacional</h2>
+            <p>En ProCert, todas nuestras certificaciones se emiten bajo los esquemas IAF (International Accreditation Forum) and UAF (Unidad de Acreditación), garantizando el reconocimiento y validez internacional de sus certificados.</p>
+            
+            <div class="logos-container">
+                
+    <div class="logo-placeholder"> <img src="logos/iaf.png" width="119" height="119"></div>
+                
+    <div class="logo-placeholder"> <img src="logos/uaf.jpg" width="141" height="118"></div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <a href="https://wa.me/595985899217?text=Hola,%20quiero%20saber%20más%20sobre%20la%20validez%20internacional%20de%20las%20certificaciones" class="btn btn-whatsapp" target="_blank">Consultar por validez internacional</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="beneficios" class="section-gray">
+        <div class="container">
+            <h2>Beneficios de la certificación ISO</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Confianza internacional</h3>
+                    <p>Demuestra el compromiso de tu organización con los más altos estándares internacionales.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Mejora de procesos y calidad</h3>
+                    <p>Optimiza tus operaciones, reduces costos y mejora la satisfacción de tus clientes.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <h3>Acceso a nuevos mercados</h3>
+                    <p>Supera barreras de entrada y accede a clientes y mercados que exigen certificaciones.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cumplimiento normativo</h3>
+                    <p>Asegura el cumplimiento de requisitos legales, regulatorios y contractuales.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://wa.me/595985899217?text=Hola,%20quiero%20conocer%20más%20beneficios%20de%20la%20certificación%20ISO" class="btn btn-whatsapp" target="_blank">Conocer más beneficios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Normas ISO Section -->
+    <section id="normas" class="section-light">
+        <div class="container">
+            <h2>Normas ISO que certificamos</h2>
+            
+            <div class="normas-grid">
+                <div class="norma-card" onclick="toggleNormaDetails('iso9001')">
+                    
+      <div class="norma-logo" style="background-color: #0A2463; color: white;"> 
+        <img src="logos/9001.png" width="119" height="118"> </div>
+                    
+      <h3>ISO 9001:2015</h3>
+                    <p>Sistemas de Gestión de la Calidad</p>
+                    <div id="iso9001" class="norma-details">
+                        <div class="norma-details-content">
+                            <p>La norma ISO 9001 especifica los requisitos para un sistema de gestión de la calidad que puede utilizarse para su aplicación interna por las organizaciones, para certificación o con fines contractuales.</p>
+                            <p><strong>Beneficios:</strong> Mejora de la satisfacción del cliente, procesos más eficientes, mayor consistencia en la prestación de servicios.</p>
+                            <a href="https://wa.me/595985899217?text=Hola,%20quiero%20información%20sobre%20la%20certificación%20ISO%209001" class="btn btn-whatsapp" target="_blank">Solicitar información</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="norma-card" onclick="toggleNormaDetails('iso14001')">
+                    
+      <div class="norma-logo" style="background-color: #4CAF50; color: white;"> 
+        <img src="logos/14001.png" width="119" height="118"> </div>
+                    
+      <h3>ISO 14001:2015</h3>
+                    <p>Sistemas de Gestión Ambiental</p>
+                    <div id="iso14001" class="norma-details">
+                        <div class="norma-details-content">
+                            <p>La norma ISO 14001 ayuda a las organizaciones a mejorar su desempeño ambiental y a cumplir con las regulaciones ambientales.</p>
+                            <p><strong>Beneficios:</strong> Reducción de impactos ambientales, cumplimiento legal, mejora de la imagen corporativa.</p>
+                            <a href="https://wa.me/595985899217?text=Hola,%20quiero%20información%20sobre%20la%20certificación%20ISO%2014001" class="btn btn-whatsapp" target="_blank">Solicitar información</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="norma-card" onclick="toggleNormaDetails('iso45001')">
+                    
+      <div class="norma-logo" style="background-color: #FF9800; color: white;"> 
+        <img src="logos/45001.png" width="119" height="118"> </div>
+                    
+      <h3>ISO 45001:2018</h3>
+                    <p>Seguridad y Salud en el Trabajo</p>
+                    <div id="iso45001" class="norma-details">
+                        <div class="norma-details-content">
+                            <p>ISO 45001 es el estándar internacional para sistemas de gestión de seguridad y salud ocupacional, que ayuda a las organizaciones a reducir el riesgo de accidentes y enfermedades laborales.</p>
+                            <p><strong>Beneficios:</strong> Reducción de accidentes laborales, mejora del clima laboral, cumplimiento de requisitos legales.</p>
+                            <a href="https://wa.me/595985899217?text=Hola,%20quiero%20información%20sobre%20la%20certificación%20ISO%2045001" class="btn btn-whatsapp" target="_blank">Solicitar información</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="norma-card" onclick="toggleNormaDetails('iso27001')">
+                    
+      <div class="norma-logo" style="background-color: #2196F3; color: white;"> 
+        <img src="logos/27001.png" width="119" height="118"> </div>
+                    
+      <h3>ISO 27001:2022</h3>
+                    <p>Seguridad de la Información</p>
+                    <div id="iso27001" class="norma-details">
+                        <div class="norma-details-content">
+                            <p>ISO 27001 es el estándar internacional para gestionar la seguridad de la información, ayudando a las organizaciones a proteger sus activos de información.</p>
+                            <p><strong>Beneficios:</strong> Protección de datos confidenciales, gestión de riesgos de seguridad, ventaja competitiva.</p>
+                            <a href="https://wa.me/595985899217?text=Hola,%20quiero%20información%20sobre%20la%20certificación%20ISO%2027001" class="btn btn-whatsapp" target="_blank">Solicitar información</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="norma-card" onclick="toggleNormaDetails('iso22000')">
+                    
+      <div class="norma-logo" style="background-color: #E91E63; color: white;"> 
+        <img src="logos/22000.png" width="119" height="118"> </div>
+                    <h3>ISO 22000 / FSSC 22000</h3>
+                    <p>Seguridad Alimentaria</p>
+                    <div id="iso22000" class="norma-details">
+                        <div class="norma-details-content">
+                            <p>Estas normas especifican los requisitos para un sistema de gestión de la seguridad alimentaria, ayudando a las organizaciones a identificar y controlar los peligros relacionados con la inocuidad de los alimentos.</p>
+                            <p><strong>Beneficios:</strong> Mayor confianza del consumidor, cumplimiento de regulaciones, reducción de riesgos.</p>
+                            <a href="https://wa.me/595985899217?text=Hola,%20quiero%20información%20sobre%20la%20certificación%20ISO%2022000" class="btn btn-whatsapp" target="_blank">Solicitar información</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="norma-card" onclick="toggleNormaDetails('iso37001')">
+                    
+      <div class="norma-logo" style="background-color: #9C27B0; color: white;"> 
+        <img src="logos/37001.png" width="119" height="118"> </div>
+                    <h3>ISO 37001</h3>
+                    <p>Sistemas de Gestión Antisoborno</p>
+                    <div id="iso37001" class="norma-details">
+                        <div class="norma-details-content">
+                            <p>ISO 37001 especifica los requisitos y proporciona orientación para establecer, implementar, mantener y mejorar un sistema de gestión antisoborno.</p>
+                            <p><strong>Beneficios:</strong> Prevención de sobornos, protección de reputación, cumplimiento legal.</p>
+                            <a href="https://wa.me/595985899217?text=Hola,%20quiero%20información%20sobre%20la%20certificación%20ISO%2037001" class="btn btn-whatsapp" target="_blank">Solicitar información</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="norma-card" onclick="toggleNormaDetails('iso22301')">
+                    
+      <div class="norma-logo" style="background-color: #607D8B; color: white;"><img src="logos/22301-educacion.png" width="119" height="118"> 
+      </div>
+                    <h3>ISO 22301</h3>
+                    <p>Continuidad del Negocio</p>
+                    <div id="iso22301" class="norma-details">
+                        <div class="norma-details-content">
+                            <p>ISO 22301 especifica los requisitos para planificar, establecer, implementar, operar, monitorizar, revisar, mantener y mejorar continuamente un sistema de gestión de continuidad del negocio.</p>
+                            <p><strong>Beneficios:</strong> Mayor resiliencia organizacional, protección ante interrupciones, ventaja competitiva.</p>
+                            <a href="https://wa.me/595985899217?text=Hola,%20quiero%20información%20sobre%20la%20certificación%20ISO%2022301" class="btn btn-whatsapp" target="_blank">Solicitar información</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="norma-card" onclick="toggleNormaDetails('iso50001')">
+                    
+      <div class="norma-logo" style="background-color: #FFC107; color: black;"> 
+        <img src="logos/50001.png" width="119" height="118"> </div>
+                    <h3>ISO 50001</h3>
+                    <p>Gestión de la Energía</p>
+                    <div id="iso50001" class="norma-details">
+                        <div class="norma-details-content">
+                            <p>ISO 50001 proporciona un marco de requisitos para que las organizaciones desarrollen un sistema de gestión de la energía, que les permita mejorar su desempeño energético.</p>
+                            <p><strong>Beneficios:</strong> Reducción de costos energéticos, menor impacto ambiental, cumplimiento regulatorio.</p>
+                            <a href="https://wa.me/595985899217?text=Hola,%20quiero%20información%20sobre%20la%20certificación%20ISO%2050001" class="btn btn-whatsapp" target="_blank">Solicitar información</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://wa.me/595985899217?text=Hola,%20necesito%20asesoramiento%20para%20saber%20qué%20norma%20ISO%20es%20la%20más%20adecuada%20para%20mi%20empresa" class="btn btn-whatsapp" target="_blank">Asesoramiento personalizado</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp CTA Section -->
+    <section class="whatsapp-cta">
+        <div class="container">
+            <h2>¿Tienes dudas sobre qué norma se adapta a tu empresa?</h2>
+            <p>Nuestros especialistas están disponibles para asesorarte sin compromiso</p>
+            <a href="https://wa.me/595985899217?text=Hola,%20necesito%20asesoramiento%20para%20elegir%20la%20norma%20ISO%20adecuada" class="btn btn-whatsapp" target="_blank">Consultar con un especialista</a>
+        </div>
+    </section>
+
+    <!-- Clientes Section -->
+    <section id="clientes" class="section-gray">
+        <div class="container clientes-container">
+            <h2>Nuestros clientes</h2>
+            
+            <div class="clientes-logos">
+                
+    <div class="cliente-logo"> <img src="logos/1.png" width="195" height="190"> 
+      Industrias Alfa </div>
+                
+    <div class="cliente-logo"> <img src="logos/2.png" width="133" height="144"><font size="2">
+	
+	Beta group</font> </div>
+                
+    <div class="cliente-logo"> <img src="logos/3.png" width="141" height="120"><font size="2">Gamma 
+      S.A</font></div>
+                
+    <div class="cliente-logo"> <img src="logos/4.png" width="151" height="121"><font size="2">Delta 
+      Foods</font></div>
+                
+    <div class="cliente-logo"> <img src="logos/5.png" width="142" height="154"><font size="2">Omega 
+      Tech</font></div>
+            </div>
+            
+            <h3>Testimonios</h3>
+            
+            <div class="testimonios">
+                <div class="testimonio">
+                    <div class="testimonio-header">
+                        
+        <div class="testimonio-avatar"> <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Carlos Rodríguez"></div>
+                        <div>
+                            <h4>Carlos Rodríguez</h4>
+                            <p>Director Industrial, Industrias Alfa</p>
+                        </div>
+                    </div>
+                    <p>"La certificación ISO 9001 con ProCert nos ha permitido estandarizar nuestros procesos y mejorar significativamente la satisfacción de nuestros clientes."</p>
+                    <a href="https://wa.me/595985899217?text=Hola,%20quiero%20saber%20más%20sobre%20la%20experiencia%20de%20certificación%20ISO%209001" class="btn btn-whatsapp" style="margin-top: 15px;" target="_blank">Consultar experiencia</a>
+                </div>
+                
+                <div class="testimonio">
+                    <div class="testimonio-header">
+                        <div class="testimonio-avatar">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="María González">
+                        </div>
+                        <div>
+                            <h4>María González</h4>
+                            <p>Gerente de Calidad, Grupo Beta</p>
+                        </div>
+                    </div>
+                    <p>"El proceso de certificación fue claro y bien guiado por el equipo de ProCert. Ahora tenemos acceso a mercados internacionales que antes nos estaban vedados."</p>
+                    <a href="https://wa.me/595985899217?text=Hola,%20quiero%20conocer%20más%20sobre%20el%20proceso%20de%20certificación" class="btn btn-whatsapp" style="margin-top: 15px;" target="_blank">Consultar proceso</a>
+                </div>
+                
+                <div class="testimonio">
+                    <div class="testimonio-header">
+                        <div class="testimonio-avatar">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Javier López">
+                        </div>
+                        <div>
+                            <h4>Javier López</h4>
+                            <p>CEO, Omega Tech</p>
+                        </div>
+                    </div>
+                    <p>"La certificación ISO 27001 nos ha dado una ventaja competitiva en el sector, demostrando a nuestros clientes que la seguridad de su información es nuestra prioridad."</p>
+                    <a href="https://wa.me/595985899217?text=Hola,%20quiero%20saber%20más%20sobre%20los%20beneficios%20competitivos%20de%20la%20certificación" class="btn btn-whatsapp" style="margin-top: 15px;" target="_blank">Consultar beneficios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario Section -->
+    <section id="contacto" class="section-light">
+        <div class="container">
+            <h2>Contacta con nuestros especialistas</h2>
+            
+            <div class="form-container">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="empresa">Empresa</label>
+                        <input type="text" id="empresa" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" class="form-control" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">Enviar por WhatsApp</button>
+                </form>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p>¿Prefieres contactarnos directamente?</p>
+                <a href="https://wa.me/595985899217?text=Hola,%20quiero%20contactar%20con%20un%20especialista%20en%20certificación%20ISO" class="btn btn-whatsapp" target="_blank">Chat directo por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-final">
+        <div class="container">
+            <h2>Lleva a tu empresa al siguiente nivel con la certificación ISO</h2>
+            <a href="https://wa.me/595985899217?text=Hola,%20quiero%20solicitar%20mi%20certificación%20ISO%20ahora" class="btn btn-whatsapp">Solicita tu certificación ahora</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">ProCert</div>
+                    <p>Especialistas en certificación de normas ISO bajo esquema IAF y UAF con reconocimiento internacional.</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> info@procertinternational.org</p>
+                    <p><i class="fas fa-phone"></i> +595 985 899217</p>
+                    <p><i class="fas fa-globe"></i> www.procertinternational.org</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#normas">Normas ISO</a></li>
+                        <li><a href="#clientes">Clientes</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    
+      <div class="social-icons"> <a href="https://www.facebook.com/profile.php?id=61577349989256"><i class="fab fa-facebook-f"></i></a> 
+        <a href="https://www.instagram.com/procert.international/"><i class="fab fa-instagram"></i></a> <a href="#"></a> </div>
+          <a href="https://www.linkedin.com/company/procert-nternational/"><i class="fab fa-linkedin-in"></i></a> <a href="#"></a> </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 ProCert International. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        
+        // Form submission to WhatsApp
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const empresa = document.getElementById('empresa').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            const texto = `Hola, me interesa la certificación ISO. Mi nombre es ${nombre} de ${empresa}. Email: ${email}, Tel: ${telefono}. Mensaje: ${mensaje}`;
+            const textoCodificado = encodeURIComponent(texto);
+            const whatsappURL = `https://wa.me/595985899217?text=${textoCodificado}`;
+            
+            window.open(whatsappURL, '_blank');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-menu').classList.remove('active');
+                }
+            });
+        });
+        
+        // Toggle normas details
+        function toggleNormaDetails(id) {
+            const element = document.getElementById(id);
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
